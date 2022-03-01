@@ -1,12 +1,12 @@
 import React from 'react'
-import "./List.css"
+import "./List.scss"
 
 function List() {
     return (
-    <>
+    <div className="list">
     {/* <!-- header --> */}
     <header>
-        <h2 className="title">WeBuks</h2>
+        <h2 className="title">WeBucks</h2>
         <nav>
             <ul>
                 {/* a 태그를 div로 임시 변경함. */}
@@ -30,7 +30,7 @@ function List() {
         {/* <!-- section1 grid --> */}
         <section className="listGrid">
             <div className="gridWrap">
-                <div className="overflow" onclick="toDetail()">
+                <div className="overflow" onClick={() => {}}>
                     <img className="coffeeImg" src="/images/coffee1.jpg" alt="나이트로 바닐라 크림" />
                 </div>
                 <p className="coffeeName">나이트로 바닐라 크림</p>
@@ -127,7 +127,7 @@ function List() {
             </div>
         </section>
     </main>
-    </>
+    </div>
     )
 }
 

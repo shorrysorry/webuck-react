@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
+.detail {
 /* head */
 header {
     display: flex;
@@ -87,6 +88,7 @@ main>div:nth-child(2) {
 /* main description */
 .description {
     padding-left: 20px;
+    max-width: 616px;
 }
 
 /* coffee name section */
@@ -250,4 +252,6 @@ footer .info p {
 footer .info li {
     margin-bottom: 8px;
     font-size: 11px;
+}
+
 }

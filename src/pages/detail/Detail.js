@@ -1,12 +1,12 @@
 import React from 'react'
-import "./Detail.css"
+import "./Detail.scss"
 
 function Detail() {
     return (
-    <>
+    <div className="detail">
     {/* <!-- header --> */}
     <header>
-        <h2 class="title">WeBuks</h2>
+        <h2 className="title">WeBucks</h2>
         <nav>
             <ul>
                 <li><div>COFFEE</div></li>
@@ -18,7 +18,7 @@ function Detail() {
     </header>
 
     {/* <!-- subtitle - coffee type --> */}
-    <section class="coffeeType">
+    <section className="coffeeType">
         <h3>콜드 브루</h3>
         <p>홈 &gt; MENU &gt; 음료 &gt; 에스프레스 &gt; 나이트로 바닐라 크림</p>
     </section>
@@ -26,55 +26,55 @@ function Detail() {
     {/* <!-- main --> */}
     <main>
         {/* <!-- coffee image --> */}
-        <div class="coffeeImg">
+        <div className="coffeeImg">
             <img src="/images/coffee1.jpg" alt="나이트로 바닐라 크림" />
         </div>
 
         {/* <!-- description --> */}
-        <div class="description">
+        <div className="description">
 
             {/* <!-- coffee name section --> */}
-            <section class="coffeeName">
+            <section className="coffeeName">
                 <h4>나이트로 바닐라 크림</h4>
-                <i class="fa-regular fa-heart btnOff"></i>
-                <p class="engName">Nitro Vanilla Cream</p>
+                <i className="fa-regular fa-heart btnOff"></i>
+                <p className="engName">Nitro Vanilla Cream</p>
             </section>
-            <p class="explain">
+            <p className="explain">
                 부드러운 목넘김의 나이트로 커피와 바닐라 크림의 매력을 한번에 느껴보세요!
             </p>
 
             {/* <!-- nutrition section --> */}
-            <section class="nutriPreview">
+            <section className="nutriPreview">
                 <p>제품 영양 정보</p>
                 <p>Tall(톨) / 355ml (12 fl oz)</p>
             </section>
-            <section class="nutriDetails">
+            <section className="nutriDetails">
                 {/* <!-- nutri left section --> */}
-                <div class="nutriWrapper">
-                    <div class="nutirContent">
+                <div className="nutriWrapper">
+                    <div className="nutirContent">
                         <p>1회 제공량 (kcal)</p>
                         <p>80</p>
                     </div>
-                    <div class="nutirContent">
+                    <div className="nutirContent">
                         <p>포화지방 (g)</p>
                         <p>2</p>
                     </div>
-                    <div class="nutirContent">
+                    <div className="nutirContent">
                         <p>단백질 (g)</p>
                         <p>1</p>
                     </div>
                 </div>
                 {/* <!-- nutri right section --> */}
-                <div class="nutriWrapper">
-                    <div class="nutirContent">
+                <div className="nutriWrapper">
+                    <div className="nutirContent">
                         <p>나트륨 (mg)</p>
                         <p>40</p>
                     </div>
-                    <div class="nutirContent">
+                    <div className="nutirContent">
                         <p>당류 (g)</p>
                         <p>10</p>
                     </div>
-                    <div class="nutirContent">
+                    <div className="nutirContent">
                         <p>카페인 (mg)</p>
                         <p>232</p>
                     </div>
@@ -83,7 +83,7 @@ function Detail() {
             </section>
 
             {/* <!-- allergic section --> */}
-            <section class="allergic">
+            <section className="allergic">
                 알레르기 유발요인 : 우유
             </section>
 
@@ -160,7 +160,7 @@ function Detail() {
             </div>
         </div>
     </footer>
-    </>
+    </div>
     )
 }
 
