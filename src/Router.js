@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // import Nav from "./components/Nav/Nav";
 // import Footer from "./components/Footer/Footer";
-import Login from "./pages/Login/Login";
-import Detail from "./pages/Detail/Detail";
-import List from "./pages/List/List";
+import Login from "./pages/login/Login";
+import Detail from "./pages/detail/Detail";
+import List from "./pages/list/List";
 
 function Router() {
   return (
