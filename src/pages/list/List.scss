@@ -5,47 +5,6 @@
     margin: 0 auto;
     box-sizing: border-box;
 
-    /* header */
-    header {
-        display: flex;
-        justify-content: space-between;
-        position: relative;
-        padding: 15px 10px;
-        margin: 0 auto;
-        width: 100%;
-        max-width: 1024px;
-        background: #F6F5F0;
-
-
-        /* title */
-        .title {
-            font-family: 'Dancing Script',
-                cursive;
-            font-weight: bold;
-            font-size: 20px;
-        }
-
-        /* nav */
-        nav {
-            margin: auto 0;
-
-            ul {
-                display: flex;
-
-                li {
-                    margin: 0 8px;
-                    font-size: 14px;
-                    font-weight: bold;
-                    color: #cccccc;
-
-                    &:hover {
-                        color: #aaaaaa;
-                    }
-                }
-            }
-        } 
-    }
-
     /* main */
 
     /* list head */
@@ -62,14 +21,14 @@
             font-weight: bold;
         }
 
-         .fa-mug-hot {
-             margin-left: 5px;
-         }
+        .fa-mug-hot {
+            margin-left: 5px;
+        }
 
-         .feature {
-             margin-left: 5px;
-             font-size: 13px;
-             font-weight: bold;
+        .feature {
+            margin-left: 5px;
+            font-size: 13px;
+            font-weight: bold;
         }
     }
 
@@ -86,14 +45,14 @@
             /* coffee img */
             .overflow {
                 margin: 0 auto;
-                width: 250px;
-                height: 250px;
+                width: 240px;
+                height: 240px;
                 overflow: hidden;
             }
 
             .coffeeImg {
-                width: 250px;
-                height: 250px;
+                width: 240px;
+                height: 240px;
                 transition: all .5s ease-in-out;
 
                 &:hover {

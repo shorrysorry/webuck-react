@@ -1,22 +1,12 @@
 import React from 'react'
+import TopNav from '../../components/nav/TopNav'
 import "./Detail.scss"
 
 function Detail() {
     return (
     <div className="detail">
-    {/* <!-- header --> */}
-    <header>
-        <h2 className="title">WeBucks</h2>
-        <nav>
-            <ul>
-                <li><div>COFFEE</div></li>
-                <li><div>MENU</div></li>
-                <li><div>STORE</div></li>
-                <li><div>WHAT'S NEW</div></li>
-            </ul>
-        </nav>
-    </header>
-
+    <TopNav />
+    
     {/* <!-- subtitle - coffee type --> */}
     <section className="coffeeType">
         <h3>콜드 브루</h3>

@@ -1,23 +1,12 @@
 import React from 'react'
+import TopNav from '../../components/nav/TopNav'
 import "./List.scss"
 
 function List() {
     return (
     <div className="list">
-    {/* <!-- header --> */}
-    <header>
-        <h2 className="title">WeBucks</h2>
-        <nav>
-            <ul>
-                {/* a 태그를 div로 임시 변경함. */}
-                <li><div href="#">COFFEE</div></li>
-                <li><div href="#">MENU</div></li>
-                <li><div href="#">STORE</div></li>
-                <li><div href="#">WHAT'S NEW</div></li>
-            </ul>
-        </nav>
-    </header>
-
+    <TopNav />
+    
     {/* <!-- main --> */}
     <main>
         {/* <!-- section1 head --> */}
