@@ -2,6 +2,18 @@ import React, { useState, useEffect } from 'react';
 import TopNav from '../../components/nav/TopNav';
 import './List.scss';
 
+function CoffeeCard({ data }) {
+  return (
+    <div className="gridWrap" key={data.key}>
+      <div className="overflow" onClick={() => {}}>
+        <img className="coffeeImg" src={data.imgURL} alt={data.name} />
+      </div>
+      <p className="coffeeName">{data.name}</p>
+      <i className="fa-regular fa-heart btnOff" />
+    </div>
+  );
+}
+
 function List() {
   const [data, setData] = useState([]);
 
@@ -29,19 +41,7 @@ function List() {
         {/* <!-- section1 grid --> */}
         <section className="listGrid">
           {data.map(coffee => {
-            return (
-              <div className="gridWrap" key={coffee.key}>
-                <div className="overflow" onClick={() => {}}>
-                  <img
-                    className="coffeeImg"
-                    src={coffee.imgURL}
-                    alt={coffee.name}
-                  />
-                </div>
-                <p className="coffeeName">{coffee.name}</p>
-                <i className="fa-regular fa-heart btnOff" />
-              </div>
-            );
+            return <CoffeeCard data={coffee} key={coffee.id} />;
           })}
         </section>
 
