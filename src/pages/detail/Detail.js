@@ -11,6 +11,8 @@ function Detail() {
       .then(res => setData(res));
   }, []);
 
+  console.log(data);
+
   return (
     <div className="detailSubin">
       <TopNav />
@@ -25,7 +27,7 @@ function Detail() {
       <main>
         {/* <!-- coffee image --> */}
         <div className="coffeeImg">
-          <img src={data[0].imgURL} alt={data[0].name} />
+          <img src={data.imgURL} alt={data.name} />
         </div>
 
         {/* <!-- description --> */}

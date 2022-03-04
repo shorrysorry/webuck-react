@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './TopNav.scss';
 
 function TopNav() {
@@ -10,16 +11,24 @@ function TopNav() {
           <ul>
             {/* a 태그를 div로 임시 변경함 */}
             <li>
-              <div>COFFEE</div>
+              <Link to="#" class="navMenu">
+                COFFEE
+              </Link>
             </li>
             <li>
-              <div>MENU</div>
+              <Link to="#" class="navMenu">
+                MENU
+              </Link>
             </li>
             <li>
-              <div>STORE</div>
+              <Link to="#" class="navMenu">
+                STORE
+              </Link>
             </li>
             <li>
-              <div>WHAT'S NEW</div>
+              <Link to="#" class="navMenu">
+                WHAT'S NEW
+              </Link>
             </li>
           </ul>
         </nav>

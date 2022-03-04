@@ -38,6 +38,12 @@
     grid-gap: 10px;
     width: 100%;
 
+    .loadingMessage {
+      height: 50px;
+      padding: 10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
     .gridWrap {
       position: relative;
 

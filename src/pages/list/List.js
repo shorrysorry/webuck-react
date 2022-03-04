@@ -1,18 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TopNav from '../../components/nav/TopNav';
+import CoffeeCard from './CoffeCard';
 import './List.scss';
-
-function CoffeeCard({ data }) {
-  return (
-    <div className="gridWrap" key={data.key}>
-      <div className="overflow" onClick={() => {}}>
-        <img className="coffeeImg" src={data.imgURL} alt={data.name} />
-      </div>
-      <p className="coffeeName">{data.name}</p>
-      <i className="fa-regular fa-heart btnOff" />
-    </div>
-  );
-}
 
 function List() {
   const [data, setData] = useState([]);
@@ -23,11 +12,13 @@ function List() {
       .then(res => setData(res));
   }, []);
 
+  const coldBrew = data.filter(coffee => coffee.type === 'coldBrew');
+  const brewed = data.filter(coffee => coffee.type !== 'coldBrew');
+
   return (
     <div className="listSubin">
       <TopNav />
 
-      {/* <!-- main --> */}
       <main>
         {/* <!-- section1 head --> */}
         <section className="listHead">
@@ -40,45 +31,38 @@ function List() {
 
         {/* <!-- section1 grid --> */}
         <section className="listGrid">
-          {data.map(coffee => {
-            return <CoffeeCard data={coffee} key={coffee.id} />;
-          })}
+          {data.length ? (
+            coldBrew.map(coffee => {
+              return <CoffeeCard data={coffee} key={coffee.id} />;
+            })
+          ) : (
+            <p className="loadingMessage">로딩중입니다</p>
+          )}
         </section>
 
         {/* <!-- section2 head --> */}
-        {/* <section className="listHead">
-          <h3 className="listType">브루드 커피</h3>
-          <i className="fa-solid fa-mug-hot" />
-          <p className="feature">
-            디카페인 에스프레스 샷 추가 가능 (일부 음료 제외)
-          </p>
-        </section> */}
+        <section className="listHead">
+          {data.length ? (
+            <>
+              <h3 className="listType">브루드 커피</h3>
+              <i className="fa-solid fa-mug-hot" />
+              <p className="feature">
+                디카페인 에스프레스 샷 추가 가능 (일부 음료 제외)
+              </p>
+            </>
+          ) : (
+            ''
+          )}
+        </section>
 
         {/* <!-- section2 grid --> */}
-        {/* <section className="listGrid">
-          <div className="gridWrap">
-            <div className="overflow">
-              <img
-                className="coffeeImg"
-                src="/images/subin/coffee11.jpg"
-                alt="아이스 커피"
-              />
-            </div>
-            <p className="coffeeName">아이스 커피</p>
-            <i className="fa-regular fa-heart btnOff" />
-          </div>
-          <div className="gridWrap">
-            <div className="overflow">
-              <img
-                className="coffeeImg"
-                src="/images/subin/coffee12.jpg"
-                alt="오늘의 커피"
-              />
-            </div>
-            <p className="coffeeName">오늘의 커피</p>
-            <i className="fa-regular fa-heart btnOff" />
-          </div>
-        </section> */}
+        <section className="listGrid">
+          {data.length
+            ? brewed.map(coffee => {
+                return <CoffeeCard data={coffee} key={coffee.id} />;
+              })
+            : ''}
+        </section>
       </main>
     </div>
   );
