@@ -55,10 +55,10 @@ function Login() {
   useEffect(() => {
     if (id.isActive && pw.isActive) {
       btnRef.current.disabled = false;
-      btnRef.current.style.background = 'black';
+      btnRef.current.style.background = '#61ADED';
     } else {
       btnRef.current.disabled = true;
-      btnRef.current.style.background = 'skyblue';
+      btnRef.current.style.background = '#D5E7F8';
     }
   }, [id.isActive, pw.isActive]);
 
