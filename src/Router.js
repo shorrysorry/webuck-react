@@ -9,9 +9,9 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login-subin" element={<LoginSubin />} />
-        <Route path="/" element={<ListSubin />} />
-        <Route path="/detail-subin" element={<DetailSubin />} />
+        <Route path="/" element={<LoginSubin />} />
+        <Route path="/list" element={<ListSubin />} />
+        <Route path="/detail" element={<DetailSubin />} />
       </Routes>
     </BrowserRouter>
   );

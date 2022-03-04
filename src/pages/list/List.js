@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import TopNav from '../../components/nav/TopNav';
 import './List.scss';
 
 function List() {
-  const [users, setUsers] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     fetch('./data/coffeeList.json')
       .then(res => res.json())
-      .then(res => setUsers(res));
+      .then(res => setData(res));
   }, []);
 
   return (
@@ -28,17 +28,17 @@ function List() {
 
         {/* <!-- section1 grid --> */}
         <section className="listGrid">
-          {users.map(user => {
+          {data.map(coffee => {
             return (
-              <div className="gridWrap" key={user.key}>
+              <div className="gridWrap" key={coffee.key}>
                 <div className="overflow" onClick={() => {}}>
                   <img
                     className="coffeeImg"
-                    src={user.imgURL}
-                    alt={user.name}
+                    src={coffee.imgURL}
+                    alt={coffee.name}
                   />
                 </div>
-                <p className="coffeeName">{user.name}</p>
+                <p className="coffeeName">{coffee.name}</p>
                 <i className="fa-regular fa-heart btnOff" />
               </div>
             );

@@ -21,8 +21,7 @@ function Login() {
               type="password"
               placeholder="비밀번호"
             />
-            <button className="fa-solid fa-eye-slash eye"></button>
-            {/* i tag 적용 다시 해야함 임시로 button으로 변경함 */}
+            <i className="fa-solid fa-eye-slash eye" />
           </div>
           <button className="loginBtn" onClick={() => {}}>
             로그인

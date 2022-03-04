@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import TopNav from '../../components/nav/TopNav';
 import './Detail.scss';
 
 function Detail() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch('./data/NitroColdBrew.json')
+      .then(res => res.json())
+      .then(res => setData(res));
+  }, []);
+
   return (
     <div className="detailSubin">
       <TopNav />
@@ -17,7 +25,7 @@ function Detail() {
       <main>
         {/* <!-- coffee image --> */}
         <div className="coffeeImg">
-          <img src="/images/subin/coffee1.jpg" alt="나이트로 바닐라 크림" />
+          <img src={data[0].imgURL} alt={data[0].name} />
         </div>
 
         {/* <!-- description --> */}
@@ -25,7 +33,7 @@ function Detail() {
           {/* <!-- coffee name section --> */}
           <section className="coffeeName">
             <h4>나이트로 바닐라 크림</h4>
-            <i className="fa-regular fa-heart btnOff"></i>
+            <i className="fa-regular fa-heart btnOff" />
             <p className="engName">Nitro Vanilla Cream</p>
           </section>
           <p className="explain">
@@ -75,19 +83,19 @@ function Detail() {
           <section className="allergic">알레르기 유발요인 : 우유</section>
 
           {/* <!-- review section --> */}
-          <section class="rvWrapper">
-            <p class="rvTitle">리뷰</p>
-            <div class="rvContents">
-              <div class="aRv">
-                <span class="rvId">coffeelover</span>
-                <span class="rvText">너무 맛있어요!</span>
-                <i class="fa-regular fa-heart btnOff"></i>
-                <i class="fa-solid fa-trash-can"></i>
+          <section className="rvWrapper">
+            <p className="rvTitle">리뷰</p>
+            <div className="rvContents">
+              <div className="aRv">
+                <span className="rvId">coffeelover</span>
+                <span className="rvText">너무 맛있어요!</span>
+                <i className="fa-regular fa-heart btnOff" />
+                <i className="fa-solid fa-trash-can" />
               </div>
             </div>
             <input
               type="text"
-              class="rvInput"
+              className="rvInput"
               placeholder="리뷰를 입력해주세요."
             />
           </section>
@@ -96,9 +104,9 @@ function Detail() {
 
       {/* <!-- footer --> */}
       <footer>
-        <div class="footerWrap">
+        <div className="footerWrap">
           {/* <!-- info1 --> */}
-          <div class="info">
+          <div className="info">
             <p>COMPANY</p>
             <ul>
               <li>
@@ -122,7 +130,7 @@ function Detail() {
             </ul>
           </div>
           {/* <!-- info2 --> */}
-          <div class="info">
+          <div className="info">
             <p>CORPORATE SALES</p>
             <ul>
               <li>
@@ -131,7 +139,7 @@ function Detail() {
             </ul>
           </div>
           {/* <!-- info3 --> */}
-          <div class="info">
+          <div className="info">
             <p>PARTNERSHIP</p>
             <ul>
               <li>
@@ -143,7 +151,7 @@ function Detail() {
             </ul>
           </div>
           {/* <!-- info4 --> */}
-          <div class="info">
+          <div className="info">
             <p>ONLINE COMMUNITY</p>
             <ul>
               <li>
@@ -164,7 +172,7 @@ function Detail() {
             </ul>
           </div>
           {/* <!-- info5 --> */}
-          <div class="info">
+          <div className="info">
             <p>RECRUIT</p>
             <ul>
               <li>
@@ -176,7 +184,7 @@ function Detail() {
             </ul>
           </div>
           {/* <!-- info6 --> */}
-          <div class="info">
+          <div className="info">
             <p>WEBUKS</p>
           </div>
         </div>
