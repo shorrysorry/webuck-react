@@ -22,11 +22,17 @@ function List() {
       <main>
         {/* <!-- section1 head --> */}
         <section className="listHead">
-          <h3 className="listType">콜드 브루 커피</h3>
-          <i className="fa-solid fa-mug-hot" />
-          <p className="feature">
-            디카페인 에스프레스 샷 추가 가능 (일부 음료 제외)
-          </p>
+          {data.length ? (
+            <>
+              <h3 className="listType">콜드 브루 커피</h3>
+              <i className="fa-solid fa-mug-hot" />
+              <p className="feature">
+                디카페인 에스프레스 샷 추가 가능 (일부 음료 제외)
+              </p>
+            </>
+          ) : (
+            ''
+          )}
         </section>
 
         {/* <!-- section1 grid --> */}

@@ -6,27 +6,29 @@ function TopNav() {
   return (
     <div className="TopNavSubin">
       <header>
-        <h2 className="title">WeBucks</h2>
+        <Link to="/" className="title">
+          WeBucks
+        </Link>
         <nav>
           <ul>
             {/* a 태그를 div로 임시 변경함 */}
             <li>
-              <Link to="#" class="navMenu">
+              <Link to="#" className="navMenu">
                 COFFEE
               </Link>
             </li>
             <li>
-              <Link to="#" class="navMenu">
+              <Link to="#" className="navMenu">
                 MENU
               </Link>
             </li>
             <li>
-              <Link to="#" class="navMenu">
+              <Link to="#" className="navMenu">
                 STORE
               </Link>
             </li>
             <li>
-              <Link to="#" class="navMenu">
+              <Link to="#" className="navMenu">
                 WHAT'S NEW
               </Link>
             </li>

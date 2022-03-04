@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function CoffeeCard({ data }) {
+  const navigate = useNavigate();
   const handleHeartBtn = e => {
     const { classList } = e.target;
     if (classList.contains('btnOff')) {
@@ -14,7 +16,12 @@ function CoffeeCard({ data }) {
 
   return (
     <div className="gridWrap" key={data.key}>
-      <div className="overflow" onClick={() => {}}>
+      <div
+        className="overflow"
+        onClick={() => {
+          navigate(`/list/${data.id}`);
+        }}
+      >
         <img className="coffeeImg" src={data.imgURL} alt={data.name} />
       </div>
       <p className="coffeeName">{data.name}</p>

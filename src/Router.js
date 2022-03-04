@@ -11,7 +11,7 @@ function Router() {
       <Routes>
         <Route path="/" element={<LoginSubin />} />
         <Route path="/list" element={<ListSubin />} />
-        <Route path="/detail" element={<DetailSubin />} />
+        <Route path="/list/:id" element={<DetailSubin />} />
       </Routes>
     </BrowserRouter>
   );
