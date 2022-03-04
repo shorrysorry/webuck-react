@@ -10,7 +10,7 @@ function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/login-subin" element={<LoginSubin />} />
-        <Route path="/list-subin" element={<ListSubin />} />
+        <Route path="/" element={<ListSubin />} />
         <Route path="/detail-subin" element={<DetailSubin />} />
       </Routes>
     </BrowserRouter>
