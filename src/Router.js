@@ -1,22 +1,18 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// import Nav from "./components/Nav/Nav";
-// import Footer from "./components/Footer/Footer";
-import Login from "./pages/login/Login";
-import Detail from "./pages/detail/Detail";
-import List from "./pages/list/List";
-
+// 수빈's 컴포넌트
+import LoginSubin from './pages/login/Login';
+import DetailSubin from './pages/detail/Detail';
+import ListSubin from './pages/list/List';
 function Router() {
   return (
     <BrowserRouter>
-      {/* <Nav /> */}
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/detail" element={<Detail />} />
-        <Route path="/list" element={<List />} />
+        <Route path="/login-subin" element={<LoginSubin />} />
+        <Route path="/list-subin" element={<ListSubin />} />
+        <Route path="/detail-subin" element={<DetailSubin />} />
       </Routes>
-      {/* <Footer /> */}
     </BrowserRouter>
   );
 }
