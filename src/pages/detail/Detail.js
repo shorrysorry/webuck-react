@@ -4,7 +4,8 @@ import TopNav from '../../components/nav/TopNav';
 import Footer from '../../components/footer/Footer';
 import Nutrition from './Nutrition';
 import './Detail.scss';
-import Heart from '../../components/heart/heart';
+import Heart from '../../components/heart/Heart';
+import ReviewInputs from './ReviewInputs';
 
 function Detail() {
   const params = useParams();
@@ -140,27 +141,12 @@ function Detail() {
                 );
               })}
             </div>
-            <div className="reviewInputs">
-              <input
-                name="writer"
-                type="text"
-                className="rvInput"
-                placeholder="아이디"
-                onChange={inputChange}
-                value={writer}
-              />
-              <input
-                name="comment"
-                type="text"
-                className="rvInput"
-                placeholder="리뷰 내용"
-                onChange={inputChange}
-                value={comment}
-              />
-              <button className="tempoBtn" onClick={addReview}>
-                등록
-              </button>
-            </div>
+            <ReviewInputs
+              writer={writer}
+              comment={comment}
+              inputChange={inputChange}
+              addReview={addReview}
+            />
           </section>
         </div>
       </main>

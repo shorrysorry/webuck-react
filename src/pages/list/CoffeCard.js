@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Heart from '../../components/heart/heart';
+import Heart from '../../components/heart/Heart';
 
 function CoffeeCard({ data }) {
   const navigate = useNavigate();
