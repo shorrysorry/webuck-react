@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import TopNav from '../../components/nav/TopNav';
 import Footer from '../../components/footer/Footer';
+import Nutrition from './Nutrition';
 import './Detail.scss';
 
 function Detail() {
   const params = useParams();
+  const nextId = useRef(4);
+  const [inputs, setInputs] = useState({
+    writer: '',
+    comment: '',
+  });
   const [data, setData] = useState({
     id: 0,
     name: '',
@@ -25,18 +31,53 @@ function Detail() {
     comments: [
       { id: 1, writer: 'abcde', comment: '' },
       { id: 2, writer: 'fgerty', comment: '' },
-      { id: 2, writer: 'fgerty', comment: '' },
+      { id: 3, writer: 'fgerty', comment: '' },
     ],
     imgURL: '',
   });
+  const [reviews, setReviews] = useState(data.comments);
 
   useEffect(() => {
     fetch(`/data/${params.id}.json`)
       .then(res => res.json())
       .then(res => {
         setData(res);
+        setReviews(res.comments);
       });
   }, []);
+
+  const handleHeartBtn = e => {
+    const { classList } = e.target;
+    if (classList.contains('btnOff')) {
+      classList.replace('btnOff', 'btnOn');
+      classList.replace('fa-regular', 'fa-solid');
+    } else {
+      classList.replace('btnOn', 'btnOff');
+      classList.replace('fa-solid', 'fa-regular');
+    }
+  };
+  const { writer, comment } = inputs;
+  const inputChange = e => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
+
+  const addReview = () => {
+    const newRievew = {
+      id: nextId.current,
+      writer,
+      comment,
+    };
+    setReviews([...reviews, newRievew]);
+    setInputs({
+      writer: '',
+      comment: '',
+    });
+    nextId.current += 1;
+  };
 
   return (
     <div className="detailSubin">
@@ -60,7 +101,10 @@ function Detail() {
           {/* <!-- coffee name section --> */}
           <section className="coffeeName">
             <h4>{data.name}</h4>
-            <i className="fa-regular fa-heart btnOff" />
+            <i
+              className="fa-regular fa-heart btnOff"
+              onClick={handleHeartBtn}
+            />
             <p className="engName">{data.EnglishName}</p>
           </section>
           <p className="explain">{data.desc}</p>
@@ -74,32 +118,14 @@ function Detail() {
           </section>
           <section className="nutriDetails">
             <div className="nutriWrapper">
-              <div className="nutirContent">
-                <p>{data.nutrition[0].name}</p>
-                <p>{data.nutrition[0].amount}</p>
-              </div>
-              <div className="nutirContent">
-                <p>{data.nutrition[1].name}(g)</p>
-                <p>{data.nutrition[1].amount}</p>
-              </div>
-              <div className="nutirContent">
-                <p>{data.nutrition[2].name}(g)</p>
-                <p>{data.nutrition[2].amount}</p>
-              </div>
+              {data.nutrition.map(data => {
+                return data.id < 4 && <Nutrition data={data} key={data.id} />;
+              })}
             </div>
             <div className="nutriWrapper">
-              <div className="nutirContent">
-                <p>{data.nutrition[3].name}(g)</p>
-                <p>{data.nutrition[3].amount}</p>
-              </div>
-              <div className="nutirContent">
-                <p>{data.nutrition[4].name}(g)</p>
-                <p>{data.nutrition[4].amount}</p>
-              </div>
-              <div className="nutirContent">
-                <p>{data.nutrition[5].name}(g)</p>
-                <p>{data.nutrition[5].amount}</p>
-              </div>
+              {data.nutrition.map(data => {
+                return data.id > 3 && <Nutrition data={data} key={data.id} />;
+              })}
             </div>
           </section>
 
@@ -114,18 +140,42 @@ function Detail() {
           <section className="rvWrapper">
             <p className="rvTitle">리뷰</p>
             <div className="rvContents">
-              <div className="aRv">
-                <span className="rvId">coffeelover</span>
-                <span className="rvText">너무 맛있어요!</span>
-                <i className="fa-regular fa-heart btnOff" />
-                <i className="fa-solid fa-trash-can" />
-              </div>
+              {reviews.map(data => {
+                console.log(data);
+                return (
+                  <div className="aRv" key={data.id}>
+                    <span className="rvId">{data.writer}</span>
+                    <span className="rvText">{data.comment}</span>
+                    <i
+                      className="fa-regular fa-heart btnOff"
+                      onClick={handleHeartBtn}
+                    />
+                    <i className="fa-solid fa-trash-can" />
+                  </div>
+                );
+              })}
             </div>
-            <input
-              type="text"
-              className="rvInput"
-              placeholder="리뷰를 입력해주세요."
-            />
+            <div className="reviewInputs">
+              <input
+                name="writer"
+                type="text"
+                className="rvInput"
+                placeholder="아이디"
+                onChange={inputChange}
+                value={writer}
+              />
+              <input
+                name="comment"
+                type="text"
+                className="rvInput"
+                placeholder="리뷰 내용"
+                onChange={inputChange}
+                value={comment}
+              />
+              <button className="tempoBtn" onClick={addReview}>
+                등록
+              </button>
+            </div>
           </section>
         </div>
       </main>
