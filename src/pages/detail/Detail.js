@@ -2,10 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import TopNav from '../../components/nav/TopNav';
 import Footer from '../../components/footer/Footer';
-import Nutrition from './Nutrition';
-import './Detail.scss';
 import Heart from '../../components/heart/Heart';
 import ReviewInputs from './ReviewInputs';
+import Nutrition from './Nutrition';
+import './Detail.scss';
 
 function Detail() {
   const params = useParams();
