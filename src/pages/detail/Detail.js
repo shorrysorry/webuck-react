@@ -141,7 +141,6 @@ function Detail() {
             <p className="rvTitle">리뷰</p>
             <div className="rvContents">
               {reviews.map(data => {
-                console.log(data);
                 return (
                   <div className="aRv" key={data.id}>
                     <span className="rvId">{data.writer}</span>
