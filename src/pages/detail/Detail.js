@@ -4,6 +4,7 @@ import TopNav from '../../components/nav/TopNav';
 import Footer from '../../components/footer/Footer';
 import Nutrition from './Nutrition';
 import './Detail.scss';
+import Heart from '../../components/heart/heart';
 
 function Detail() {
   const params = useParams();
@@ -46,17 +47,8 @@ function Detail() {
       });
   }, []);
 
-  const handleHeartBtn = e => {
-    const { classList } = e.target;
-    if (classList.contains('btnOff')) {
-      classList.replace('btnOff', 'btnOn');
-      classList.replace('fa-regular', 'fa-solid');
-    } else {
-      classList.replace('btnOn', 'btnOff');
-      classList.replace('fa-solid', 'fa-regular');
-    }
-  };
   const { writer, comment } = inputs;
+
   const inputChange = e => {
     const { name, value } = e.target;
     setInputs({
@@ -101,10 +93,7 @@ function Detail() {
           {/* <!-- coffee name section --> */}
           <section className="coffeeName">
             <h4>{data.name}</h4>
-            <i
-              className="fa-regular fa-heart btnOff"
-              onClick={handleHeartBtn}
-            />
+            <Heart />
             <p className="engName">{data.EnglishName}</p>
           </section>
           <p className="explain">{data.desc}</p>
@@ -145,10 +134,7 @@ function Detail() {
                   <div className="aRv" key={data.id}>
                     <span className="rvId">{data.writer}</span>
                     <span className="rvText">{data.comment}</span>
-                    <i
-                      className="fa-regular fa-heart btnOff"
-                      onClick={handleHeartBtn}
-                    />
+                    <Heart />
                     <i className="fa-solid fa-trash-can" />
                   </div>
                 );
