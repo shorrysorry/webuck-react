@@ -1,5 +1,5 @@
 import React from 'react';
-import './heart.scss';
+import './Heart.scss';
 
 function Heart() {
   const handleHeartBtn = e => {
