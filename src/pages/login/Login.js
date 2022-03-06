@@ -74,7 +74,7 @@ function Login() {
               type="text"
               placeholder="전화번호,사용자 이름 또는 이메일"
               onChange={handleIdInput}
-              value={id.value || ''}
+              value={id.value}
             />
           </div>
           {/* console창에 pw input 은 form 태그에 감싸져야하고 autoComplete 설정을 해줘야한다고 경고창이 뜬다. */}
@@ -84,7 +84,7 @@ function Login() {
               type="password"
               placeholder="비밀번호"
               onChange={handlePwInput}
-              value={pw.value || ''}
+              value={pw.value}
               ref={pwValue}
               autoComplete="off"
             />
