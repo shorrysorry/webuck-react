@@ -5,6 +5,7 @@ import Footer from '../../components/footer/Footer';
 import Heart from '../../components/heart/Heart';
 import ReviewInputs from './ReviewInputs';
 import Nutrition from './Nutrition';
+import ReviewList from './ReviewList';
 import './Detail.scss';
 
 function Detail() {
@@ -72,6 +73,10 @@ function Detail() {
     nextId.current += 1;
   };
 
+  const deleteReview = id => {
+    setReviews(reviews.filter(review => review.id !== id));
+  };
+
   return (
     <div className="detailSubin">
       <TopNav />
@@ -132,12 +137,11 @@ function Detail() {
             <div className="rvContents">
               {reviews.map(data => {
                 return (
-                  <div className="aRv" key={data.id}>
-                    <span className="rvId">{data.writer}</span>
-                    <span className="rvText">{data.comment}</span>
-                    <Heart />
-                    <i className="fa-solid fa-trash-can" />
-                  </div>
+                  <ReviewList
+                    data={data}
+                    key={data.id}
+                    onRemove={deleteReview}
+                  />
                 );
               })}
             </div>
