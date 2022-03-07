@@ -30,7 +30,7 @@ function Detail() {
       { id: 5, name: '당류 (g)', amount: 0 },
       { id: 6, name: '카페인 (mg)', amount: 0 },
     ],
-    allergie: 'milk',
+    allergie: null,
     comments: [
       { id: 1, writer: 'abcde', comment: '' },
       { id: 2, writer: 'fgerty', comment: '' },
@@ -47,7 +47,7 @@ function Detail() {
         setData(res);
         setReviews(res.comments);
       });
-  }, []);
+  }, [params]);
 
   const { writer, comment } = inputs;
 
